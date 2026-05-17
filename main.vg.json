@@ -1,0 +1,20 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Distribution of meals per day across respondents",
+  "data": {
+    "url": "q_data/.json",
+    "format": {"type": "json"}
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "Q7.No_of_Meals_Per_Day",
+      "type": "ordinal",
+      "title": "Meals per Day"
+    },
+    "y": {
+      "aggregate": "count",
+      "title": "Number of Respondents"
+    }
+  }
+}
