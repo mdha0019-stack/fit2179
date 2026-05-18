@@ -1,0 +1,42 @@
+[
+  {
+    "State":"Johor",
+    "average_rating":4.1,
+    "total_reviews":27670
+  },
+  {
+    "State":"Kedah",
+    "average_rating":4.21,
+    "total_reviews":18011
+  },
+  {
+    "State":"Kuala Lumpur",
+    "average_rating":4.21,
+    "total_reviews":27382
+  },
+  {
+    "State":"Melaka",
+    "average_rating":4.09,
+    "total_reviews":13682
+  },
+  {
+    "State":"Penang",
+    "average_rating":4.22,
+    "total_reviews":31826
+  },
+  {
+    "State":"Perak",
+    "average_rating":4.05,
+    "total_reviews":24506
+  },
+  {
+    "State":"Sarawak",
+    "average_rating":4.12,
+    "total_reviews":28446
+  },
+  {
+    "State":"Selangor",
+    "average_rating":4.14,
+    "total_reviews":50497
+  }
+]

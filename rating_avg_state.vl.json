@@ -1,0 +1,68 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 600,
+    "title": "Average Restaurant Ratings by Malaysian State",
+
+    "data": {
+        "url": "data/malaysia-states.topojson",
+        "format": {
+        "type": "topojson",
+        "feature": "states"
+            }
+        },
+    "transform": [
+    {
+    "lookup": "properties.Name",
+    "from": {
+        "data": {
+            "url": "data/malaysia_restaurant_ratings.json"
+        },
+        "key": "State",
+        "fields": [
+        "average_rating",
+        "total_reviews"
+                ]
+            }
+        }
+    ],
+
+    "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1
+        },
+    
+    "encoding": {
+        "color": {
+            "field": "average_rating",
+            "type": "quantitative",
+            "title": "Average Rating",
+            "scale": {
+            "scheme": "blues"
+                }
+            },
+        "tooltip": [
+            {
+                "field": "properties.Name",
+                "type": "nominal",
+                "title": "State"
+            },
+            {
+                "field": "average_rating",
+                "type": "quantitative",
+                "title": "Average Rating"
+            },
+            {
+                "field":"total_reviews",
+                "type": "quantitative",
+                "title": "Total Reviews"
+            }
+        ]
+    },
+
+    "projection": {
+        "type":"mercator"
+    }
+}
+    
