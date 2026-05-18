@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": "Producer Price Index Over Time",
+  "width": 800,
+  "height": 450,
+
+  "data": {
+    "url": "data/producer-prices_mys.csv",
+    "format": {"type": "csv"}
+  },
+
+  "transform": [
+    {
+      "filter": {
+        "field": "Item",
+        "oneOf": [
+          "Coarse Grain, Total",
+          "Meat, Total",
+          "Milk, Total",
+          "Vegetables&Melons, Total"
+        ]
+      }
+    },
+    {"filter": "datum.Year != '#date+year'"},
+    {"calculate": "toNumber(datum.Year)", "as": "YearNum"},
+    {"calculate": "toNumber(datum.Value)", "as": "PriceIndex"}
+  ],
+
+  "layer": [
+    {
+      "mark": {"type": "line", "point": true},
+      "encoding": {
+        "x": {"field": "YearNum", "type": "ordinal", "title": "Year"},
+        "y": {"field": "PriceIndex", "type": "quantitative", "title": "Producer Price Index"},
+        "color": {"field": "Item", "type": "nominal", "title": "Product Category"},
+        "tooltip": [
+          {"field": "Item", "type": "nominal"},
+          {"field": "YearNum", "type": "ordinal", "title": "Year"},
+          {"field": "PriceIndex", "type": "quantitative", "format": ".2f", "title": "PPI"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "bottom",
+        "font": "Arial",       
+        "fontSize": 14,
+        "color": "gray"
+      },
+      "encoding": {
+        "x": {"datum": 10},  
+        "y": {"datum": 150},   
+        "text": {"value": "Placeholder text for future notes"}
+      }
+    }
+  ]
+}

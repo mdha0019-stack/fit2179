@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>All about food: Malaysia</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        body {
+            font-family: 'Merriweather', serif; /* or your chosen serif font */
+            margin: 40px;
+            background-color: #fafafa;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        .vis-container {
+            display: flex;
+            justify-content: center; /* centers horizontally */
+            margin-bottom: 50px;
+        }
+        .vis-container > div {
+            width: 80%; /* adjust width as needed */
+        }
+    </style>
 </head>
 <body>
-    <div id="vis"></div>
+    <h1>All about food: Malaysia</h1>
+
+    <div class="vis-container">
+        <div id="vis1"></div>
+    </div>
     <script>
-        vegaEmbed('#vis', 'rating_avg_state.vl.json');
-        vegaEmbed('#vis', 'top_rest_penang.vl.json');
+        vegaEmbed('#vis1', 'rating_avg_state.vl.json');
+    </script>
+
+    <div class="vis-container">
+        <div id="vis2"></div>
+    </div>
+    <script>
+        vegaEmbed('#vis2', 'top_rest_penang.vl.json');
+    </script>
+
+    <div class="vis-container">
+        <div id="vis3"></div>
+    </div>
+    <script>
+        vegaEmbed('#vis3', 'total_food_price_ovt.vl.json');
     </script>
 </body>
 </html>
