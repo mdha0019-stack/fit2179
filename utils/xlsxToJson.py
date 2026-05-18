@@ -53,16 +53,21 @@ def xlsx_to_json(input_file, output_file=None):
     # Convert to records
     data = df.to_dict(orient="records")
 
-    # Output filename
+    # Output filenames
     if output_file is None:
         base, _ = os.path.splitext(input_file)
         output_file = base + ".json"
+    csv_file = os.path.splitext(output_file)[0] + ".csv"
 
     # Save JSON
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
 
-    print(f"Converted {input_file} → {output_file}")
+    # Save CSV
+    df.to_csv(csv_file, index=False, encoding="utf-8")
+
+    print(f"Converted {input_file} → {output_file} and {csv_file}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
