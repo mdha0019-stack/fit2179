@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/GoogleReview_data_cleaned.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Location == 'Penang'"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "Rating",
+          "as": "avg_rating"
+        },
+        {
+          "op": "count",
+          "field": "Rating",
+          "as": "total_reviews"
+        }
+      ],
+      "groupby": ["Restaurant"]
+    },
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
+      "sort": [{"field": "avg_rating", "order": "descending"}]
+    },
+    {
+      "filter": "datum.rank <= 10"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "avg_rating",
+      "type": "quantitative",
+      "title": "Average Rating"
+    },
+    "y": {
+      "field": "Restaurant",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "Restaurant"
+    },
+    "tooltip": [
+      {"field": "Restaurant", "type": "nominal", "title": "Restaurant"},
+      {"field": "avg_rating", "type": "quantitative", "title": "Avg Rating"},
+      {
+        "field": "total_reviews",
+        "type": "quantitative",
+        "title": "Total Reviews"
+      }
+    ]
+  }
+}
