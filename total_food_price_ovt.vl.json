@@ -1,9 +1,17 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": "Producer Price Index Over Time",
-  "width": 800,
-  "height": 450,
+  "title": {
+        "text": "Producer Price Index Over Time",
+        "subtitle": [
+            "The graph shows how Malaysia’s food producer prices shifted from 1991 to 2022, with sharp rises",
+            "around 2008 and after 2020. These fluctuations highlight how global crises and local supply",
+            "pressures shape food culture, influencing affordability, dietary choices, and everyday meals across the country"
+        ],
+        "anchor": "start"    
+    },
+  "width": 650,
+  "height": 420,
 
   "data": {
     "url": "data/producer-prices_mys.csv",
@@ -39,21 +47,6 @@
           {"field": "YearNum", "type": "ordinal", "title": "Year"},
           {"field": "PriceIndex", "type": "quantitative", "format": ".2f", "title": "PPI"}
         ]
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "align": "right",
-        "baseline": "bottom",
-        "font": "Arial",       
-        "fontSize": 14,
-        "color": "gray"
-      },
-      "encoding": {
-        "x": {"datum": 10},  
-        "y": {"datum": 150},   
-        "text": {"value": "Placeholder text for future notes"}
       }
     }
   ]

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 650,
+    "height": 420,
+    "title": {
+        "text" : "PPI on Select Goods in 2022 vs Online Public Food Security Sentiment",
+        "subtitle" :[
+            "The chart below shows us the changing producer price index within 2022",
+            "focusing mainly on common foods including Bananas, Cabbages, Eggs, Chicken,",
+            "Duck and Okra on the left of the scale. On the right hand side is the average user",
+            "sentiment score on Twitter regarding Food Security. The score scales from -0.99 to 0.99",
+            "where -0.99 has a completely negative sentiment and 0.99 is completely positive.",
+            "We can notice a sharp drop between March to May. But overall sentiment has remained above 0."
+    ],
+    "anchor": "start"
+
+    },
+
+  "layer": [
+
+    {
+      "data": { "url": "data/producer-prices_mys.csv" },
+      "transform": [
+        {"filter": "datum.Year == 2022 && datum['Months Code'] != 7021"},
+        {
+          "filter": "indexof(['Cabbages','Hen eggs in shell, fresh','Meat of chickens, fresh or chilled (biological)','Okra','Bananas','Meat of ducks, fresh or chilled (biological)'], datum.Item) >= 0"
+        },
+        {"calculate": "datum['Months Code'] - 7000", "as": "month_index"},
+        {"calculate": "datetime(2022, datum.month_index, 1)", "as": "month_date"},
+        {
+          "aggregate": [
+            {"op": "mean", "field": "Value", "as": "avg_ppi"}
+          ],
+          "groupby": ["month_date","Item"]
+        },
+        {"calculate": "round(datum.avg_ppi * 1000) / 1000", "as": "avg_ppi_3sf"}
+      ],
+      "mark": {"type": "line", "point": true},
+      "encoding": {
+        "x": {"field": "month_date", "type": "temporal", "title": "Month (2022)"},
+        "y": {
+          "field": "avg_ppi_3sf",
+          "type": "quantitative",
+          "title": "Producer Price Index",
+          "axis": {"titleColor": "steelblue"}
+        },
+        "color": {"field": "Item", "type": "nominal", "title": "Commodity"},
+        "tooltip": [{"field": "Item"}, {"field": "avg_ppi_3sf"}]
+      }
+    },
+
+    {
+      "data": { "url": "data/food_security_processed_data.csv" },
+      "transform": [
+        {"calculate": "toDate(datum.Datetime)", "as": "date"},
+        {"filter": "year(datum.date) == 2022"},
+        {"calculate": "month(datum.date)", "as": "month_index"},
+        {"calculate": "datetime(2022, datum.month_index, 1)", "as": "month_date"},
+        {
+          "aggregate": [
+            {"op": "mean", "field": "sentiment_score", "as": "avg_sentiment"}
+          ],
+          "groupby": ["month_date"]
+        },
+        {"calculate": "round(datum.avg_sentiment * 1000) / 1000", "as": "avg_sentiment_3sf"}
+      ],
+      "mark": {"type": "line", "color": "black", "strokeDash": [5,5], "point": true},
+      "encoding": {
+        "x": {"field": "month_date", "type": "temporal"},
+        "y": {
+          "field": "avg_sentiment_3sf",
+          "type": "quantitative",
+          "title": "Sentiment Score",
+          "axis": {"titleColor": "black"}
+        },
+        "tooltip": [{"field": "avg_sentiment_3sf"}]
+      }
+    }
+  ],
+
+  "resolve": {
+    "scale": {"y": "independent"}
+  }
+}

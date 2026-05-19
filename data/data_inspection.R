@@ -80,3 +80,4 @@ write_csv(comparison, "TripAdvisor_Google_Comparison.csv")
 
 df_survey <- read.csv("food_survey.csv")
 
+df_p_2022 <- df_p %>% filter(Year == "2022")

@@ -1,8 +1,17 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "width": 800,
-  "height": 400,
+  "title": {
+        "text": "Top 10 Restaurants By Average Rating in Penang",
+        "subtitle": [
+            "From the map we can see that Penang has on average the highest rated restaurants on average.",
+            "Below you can see the top 10 restaurants from Google Reviews."
+        ],
+        "anchor": "start"    
+    },
+
+  "width": 650,
+  "height": 420,
 
   "data": {
     "url": "data/GoogleReview_data_cleaned.csv"

@@ -25,6 +25,12 @@
         .vis-container > div {
             width: 80%; /* adjust width as needed */
         }
+
+        /* Only applies to the triple row */
+        .vis-container--triple > div {
+            width: 30%;
+        }
+
     </style>
 </head>
 <body>
@@ -35,6 +41,13 @@
     </div>
     <script>
         vegaEmbed('#vis1', 'rating_avg_state.vl.json');
+    </script>
+
+    <div class="vis-container">
+        <div id="vis5"></div>
+    </div>
+    <script>
+        vegaEmbed('#vis5', 'TripAdvisorVsGoogleReview.vl.json');
     </script>
 
     <div class="vis-container">
@@ -55,19 +68,33 @@
         <div id="vis4"></div>
     </div>
     <script>
-        vegaEmbed('#vis4', 'stacked_area_ppi_sect.vl.json');
+        vegaEmbed('#vis4', 'producer_priceVSsentiment.vl.json');
     </script>
-    <div class="vis-container">
-        <div id="vis5"></div>
-    </div>
-    <script>
-        vegaEmbed('#vis5', 'TripAdvisorVsGoogleReview.vl.json');
-    </script>
+    
     <div class="vis-container">
         <div id="vis6"></div>
     </div>
     <script>
         vegaEmbed('#vis6', 'EatingOutVsBMI.vl.json');
+    </script>
+    <div class="vis-container">
+        <div id="vis7"></div>
+    </div>
+    <script>
+        vegaEmbed('#vis7', 'youth_food_freq_daily.vl.json');
+    </script>
+    <div class="vis-container">
+        <div id="vis8"></div>
+    </div>
+    <script>
+        vegaEmbed('#vis8', 'youth_food_freq_weekly.vl.json');
+    </script>
+
+    <div class="vis-container">
+        <div id="vis9"></div>
+    </div>
+    <script>
+        vegaEmbed('#vis9', 'youth_food_freq_monthly.vl.json');
     </script>
 </body>
 </html>

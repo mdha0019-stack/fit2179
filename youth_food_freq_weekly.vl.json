@@ -1,7 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
-  "height": 400,
+  "width": 450,
+  "height": 300,
+  "title" : {
+    "text" : "Frequency of Weekly Consumption for Respondants Age <=18's ",
+    "subtitle":[
+      "This bar chart shows us how frequently on average Respondants Age <= 18 who consume food items weekly",
+      "consume on a weekly basis. For example, the respondants on average answers they eat noodles weekly 6 times",
+      "this means they eat needles 3 times every week on average."
+    ],
+    "anchor": "start"
+  },
 
   "data": {
     "url": "data/food_survey.csv",

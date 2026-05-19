@@ -1,7 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
-  "height": 400,
+  "width": 450,
+  "height": 300,
+  "title" : {
+    "text" : "Frequency of Daily Consumption for Respondants Age <=18's ",
+    "subtitle":[
+      "This bar chart shows us how frequently on average Respondants Age <= 18 who consume food items daily",
+      "consume on a daily basis. For example, the respondants on average answers they eat chicken daily 3 times",
+      "this means they eat chicken 3 times every day on average."
+    ],
+    "anchor": "start"
+  },
 
   "data": {
     "url": "data/food_survey.csv",
