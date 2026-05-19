@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": "Meals Per Day vs BMI",
+
+  "data": {
+    "url": "data/food_survey.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "datum['Q6.Norms_Number_of_Meals_Per_Day'] == '1 meal per day' ? 1 : datum['Q6.Norms_Number_of_Meals_Per_Day'] == '2 meals per day' ? 2 : datum['Q6.Norms_Number_of_Meals_Per_Day'] == '3 meals per day' ? 3 : datum['Q6.Norms_Number_of_Meals_Per_Day'] == '4 meals per day' ? 4 : datum['Q6.Norms_Number_of_Meals_Per_Day'] == 'More than 4 meals per day' ? 5 : null",
+      "as": "MealsPerDay"
+    },
+
+    {
+      "calculate": "datum['Q2.Gender']",
+      "as": "Gender"
+    },
+
+    {
+      "calculate": "datum['Q3.Living_Area']",
+      "as": "LivingArea"
+    },
+
+    {
+      "filter": "isValid(datum.BMI) && isValid(datum.MealsPerDay)"
+    }
+  ],
+
+  "mark": {
+    "type": "point",
+    "filled": true,
+    "opacity": 0.6,
+    "size": 80
+  },
+
+  "encoding": {
+    "x": {
+      "field": "MealsPerDay",
+      "type": "quantitative",
+      "title": "Meals Per Day",
+      "scale": {
+        "domain": [1, 5]
+      },
+      "axis": {
+        "values": [1, 2, 3, 4, 5]
+      }
+    },
+
+    "y": {
+      "field": "BMI",
+      "type": "quantitative",
+      "title": "BMI"
+    },
+
+    "tooltip": [
+      {
+        "field": "MealsPerDay",
+        "type": "quantitative",
+        "title": "Meals/Day"
+      },
+      {
+        "field": "BMI",
+        "type": "quantitative"
+      },
+      {
+        "field": "Region",
+        "type": "nominal"
+      },
+      {
+        "field": "Gender",
+        "type": "nominal"
+      },
+      {
+        "field": "LivingArea",
+        "type": "nominal",
+        "title": "Living Area"
+      }
+    ]
+  },
+
+  "width": 700,
+  "height": 450
+}

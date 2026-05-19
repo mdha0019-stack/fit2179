@@ -1,0 +1,87 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top 5 restaurants with the most combined reviews, comparing average ratings from Trip Advisor and Google Reviews",
+
+  "data": {
+    "url": "data/TripAdvisor_Google_Comparison.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "datum.T_Reviews + datum.G_Reviews",
+      "as": "Total_Reviews"
+    },
+
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "Total_Reviews",
+          "order": "descending"
+        }
+      ]
+    },
+
+    {
+      "filter": "datum.rank <= 5"
+    },
+
+    {
+      "fold": ["T_Rating", "G_Rating"],
+      "as": ["Source", "Rating"]
+    },
+
+    {
+      "calculate": "datum.Source == 'T_Rating' ? 'Trip Advisor' : 'Google Reviews'",
+      "as": "Review_Source"
+    }
+  ],
+
+  "mark": "bar",
+
+  "encoding": {
+    "x": {
+      "field": "Restaurant",
+      "type": "nominal",
+      "sort": "-y",
+      "title": "Restaurant",
+      "axis": {
+        "labelAngle": -20
+      }
+    },
+
+    "xOffset": {
+      "field": "Review_Source"
+    },
+
+    "y": {
+      "field": "Rating",
+      "type": "quantitative",
+      "title": "Average Rating",
+      "scale": {
+        "domain": [0, 5]
+      }
+    },
+
+    "color": {
+      "field": "Review_Source",
+      "type": "nominal",
+      "title": "Review Platform"
+    },
+
+    "tooltip": [
+      {"field": "Restaurant", "type": "nominal"},
+      {"field": "Review_Source", "type": "nominal"},
+      {"field": "Rating", "type": "quantitative", "format": ".2f"},
+      {"field": "Total_Reviews", "type": "quantitative"}
+    ]
+  },
+
+  "width": 700,
+  "height": 400
+}

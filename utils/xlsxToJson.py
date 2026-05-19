@@ -4,50 +4,25 @@ import os
 import json
 from openpyxl.utils import column_index_from_string
 
-# Excel columns you want
-COLUMN_RANGES = [
-    "C",
-    "K", "L", "M",
-    "O",
-    "T",
-    "W", "X",
-    "Z",
-    "AB", "AC", "AD", "AE", "AF", "AG",
-    "AH:AM",
-    "AT", "AU", "AV",
-    "IO",
-    "IR",
-    "IS:IX",
-    "IY:JF",
-    "JG:JK",
-    "JN:JO",
-    "JZ:KB",
-    "KW",
-    "LC"
-]
+# Define exclusion range (V:LC)
+EXCLUDE_RANGE = ("V", "LC")
 
-def expand_columns(ranges):
-    cols = []
+def expand_columns(total_cols, exclude_range):
+    start_idx = column_index_from_string(exclude_range[0]) - 1
+    end_idx   = column_index_from_string(exclude_range[1]) - 1
 
-    for item in ranges:
-        if ":" in item:
-            start, end = item.split(":")
-            start_idx = column_index_from_string(start)
-            end_idx = column_index_from_string(end)
-
-            for i in range(start_idx, end_idx + 1):
-                cols.append(i - 1)  # pandas uses 0-based indexing
-        else:
-            cols.append(column_index_from_string(item) - 1)
-
-    return sorted(set(cols))
+    # Keep all columns except those in the exclusion range
+    return [i for i in range(total_cols) if not (start_idx <= i <= end_idx)]
 
 def xlsx_to_json(input_file, output_file=None):
     # Read entire sheet
     df = pd.read_excel(input_file)
 
-    # Select only desired columns
-    selected_cols = expand_columns(COLUMN_RANGES)
+    # Get total number of columns
+    total_cols = df.shape[1]
+
+    # Select only desired columns (excluding V:LC)
+    selected_cols = expand_columns(total_cols, EXCLUDE_RANGE)
     df = df.iloc[:, selected_cols]
 
     # Convert to records
