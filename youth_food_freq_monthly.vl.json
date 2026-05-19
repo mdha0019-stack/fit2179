@@ -5,11 +5,6 @@
 
   "title" : {
     "text" : "Frequency of Daily Consumption for Respondants Age <=18's ",
-    "subtitle":[
-      "This bar chart shows us how frequently on average Respondants Age <= 18 who consume food items Monthly",
-      "consume on a Monthly basis. So for example, on average, a respondent that consumes rice monthly, will consume",
-      "4 bowls a month."
-    ],
     "anchor": "start"
   },
 
