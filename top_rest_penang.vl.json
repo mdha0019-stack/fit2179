@@ -3,10 +3,6 @@
 
   "title": {
         "text": "Top 10 Restaurants By Average Rating in Penang",
-        "subtitle": [
-            "From the map we can see that Penang has on average the highest rated restaurants on average.",
-            "Below you can see the top 10 restaurants from Google Reviews."
-        ],
         "anchor": "start"    
     },
 

@@ -4,14 +4,6 @@
     "height": 420,
     "title": {
         "text" : "PPI on Select Goods in 2022 vs Online Public Food Security Sentiment",
-        "subtitle" :[
-            "The chart below shows us the changing producer price index within 2022",
-            "focusing mainly on common foods including Bananas, Cabbages, Eggs, Chicken,",
-            "Duck and Okra on the left of the scale. On the right hand side is the average user",
-            "sentiment score on Twitter regarding Food Security. The score scales from -0.99 to 0.99",
-            "where -0.99 has a completely negative sentiment and 0.99 is completely positive.",
-            "We can notice a sharp drop between March to May. But overall sentiment has remained above 0."
-    ],
     "anchor": "start"
 
     },

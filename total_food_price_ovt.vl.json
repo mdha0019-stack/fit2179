@@ -3,11 +3,6 @@
 
   "title": {
         "text": "Producer Price Index Over Time",
-        "subtitle": [
-            "The graph shows how Malaysia’s food producer prices shifted from 1991 to 2022, with sharp rises",
-            "around 2008 and after 2020. These fluctuations highlight how global crises and local supply",
-            "pressures shape food culture, influencing affordability, dietary choices, and everyday meals across the country"
-        ],
         "anchor": "start"    
     },
   "width": 650,

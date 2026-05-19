@@ -4,11 +4,6 @@
     "height": 420,
     "title": {
         "text": "Average Restaurant Ratings by Malaysian State",
-        "subtitle": [
-            "This shows the average restaurant rating across several states in Malaysia.",
-            "This gives us a general idea about where we can find the best food across the country.",
-            "Food preference is a subjective matter, but this helps discover new and exciting restaurants."
-        ],
         "anchor": "start"    
     },
 

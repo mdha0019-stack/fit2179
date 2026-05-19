@@ -1,100 +1,181 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>All about food: Malaysia</title>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <style>
-        body {
-            font-family: 'Merriweather', serif; /* or your chosen serif font */
-            margin: 40px;
-            background-color: #fafafa;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-        }
-        .vis-container {
-            display: flex;
-            justify-content: center; /* centers horizontally */
-            margin-bottom: 50px;
-        }
-        .vis-container > div {
-            width: 80%; /* adjust width as needed */
-        }
+  <meta charset="UTF-8">
+  <title>All about food: Malaysia</title>
 
-        /* Only applies to the triple row */
-        .vis-container--triple > div {
-            width: 30%;
-        }
+  <!-- Vega & Vega-Lite -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-    </style>
+  <!-- Pure.css grid -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
 </head>
+
 <body>
-    <h1>All about food: Malaysia</h1>
+  <div class="page">
 
-    <div class="vis-container">
-        <div id="vis1"></div>
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <h1>All about food: Malaysia</h1>
+        <p class="intro">Exploring food culture, prices, and eating habits through data visualisations.</p>
+      </div>
     </div>
-    <script>
-        vegaEmbed('#vis1', 'rating_avg_state.vl.json');
-    </script>
 
-    <div class="vis-container">
-        <div id="vis5"></div>
+    <!-- Row 1 -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 description">
+        <h2>Restaurant Ratings by State</h2>
+        <p>This shows the average restaurant rating across several states in Malaysia. 
+            This gives us a general idea about where we can find the best food across the country. 
+            Food preference is a subjective matter, but this helps discover new and exciting restaurants.
+        </p>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis1" class="vis-container"></div>
+      </div>
     </div>
-    <script>
-        vegaEmbed('#vis5', 'TripAdvisorVsGoogleReview.vl.json');
-    </script>
 
-    <div class="vis-container">
-        <div id="vis2"></div>
+    <!-- Row 2 -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 description">
+        <h2>TripAdvisor vs Google Reviews</h2>
+        <p>However we must identify which is the most reliable platform to obtain restaurant reviews 
+            The bar chart below combines the total number of reviews on Trip Advisor and Google Reviews
+            to find the most reviewed restaurants and compares their average ratings. We can observe that 
+            in general between these 10 restaurants, reviewers tend to rate restaurants slightly higher on Trip Advisor
+             But the general rating for each restaurant is close to one another. So Trip Advisor or Google Reviews 
+             is a viable option to find good food.
+        </p>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis5" class="vis-container"></div>
+      </div>
     </div>
-    <script>
-        vegaEmbed('#vis2', 'top_rest_penang.vl.json');
-    </script>
 
-    <div class="vis-container">
-        <div id="vis3"></div>
+    <!-- Row 3 -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 description">
+        <h2>Top Restaurants in Penang</h2>
+        <p>From the map we can see that Penang has on average the highest rated restaurants on average. 
+            Below you can see the top 10 restaurants from Google Reviews.
+        </p>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis2" class="vis-container"></div>
+      </div>
     </div>
-    <script>
-        vegaEmbed('#vis3', 'total_food_price_ovt.vl.json');
-    </script>
 
-    <div class="vis-container">
-        <div id="vis4"></div>
+    <!-- Row 4 -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 description">
+        <h2>Food Prices Over Time</h2>
+        <p>The graph shows how Malaysia’s food producer prices shifted from 1991 to 2022, with sharp rises
+            around 2008 and after 2020. These fluctuations highlight how global crises and local supply
+            pressures shape food culture, influencing affordability, dietary choices, and everyday meals across the country</p>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis3" class="vis-container"></div>
+      </div>
     </div>
-    <script>
-        vegaEmbed('#vis4', 'producer_priceVSsentiment.vl.json');
-    </script>
-    
-    <div class="vis-container">
-        <div id="vis6"></div>
-    </div>
-    <script>
-        vegaEmbed('#vis6', 'EatingOutVsBMI.vl.json');
-    </script>
-    <div class="vis-container">
-        <div id="vis7"></div>
-    </div>
-    <script>
-        vegaEmbed('#vis7', 'youth_food_freq_daily.vl.json');
-    </script>
-    <div class="vis-container">
-        <div id="vis8"></div>
-    </div>
-    <script>
-        vegaEmbed('#vis8', 'youth_food_freq_weekly.vl.json');
-    </script>
 
-    <div class="vis-container">
-        <div id="vis9"></div>
+    <!-- Row 5 -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 description">
+        <h2>Producer Price vs Sentiment</h2>
+        <p>The chart below shows us the changing producer price index within 2022
+            focusing mainly on common foods including Bananas, Cabbages, Eggs, Chicken,
+            Duck and Okra on the left of the scale. On the right hand side is the average user
+            sentiment score on Twitter regarding Food Security. The score scales from -0.99 to 0.99
+            where -0.99 has a completely negative sentiment and 0.99 is completely positive.
+            We can notice a sharp drop between March to May. But overall sentiment has remained above 0.</p>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis4" class="vis-container"></div>
+      </div>
     </div>
-    <script>
-        vegaEmbed('#vis9', 'youth_food_freq_monthly.vl.json');
-    </script>
+
+    <!-- Row 6 -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 description">
+        <h2>Eating Out vs BMI</h2>
+        <p>The graph below explores the relationship between the number of times a person eats out
+            and their BMI levels. From the graph you can see that a majority of respondents have 3 meals a day
+            with many of the responses clustering between the 20 to 30 BMI range.
+        </p>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis6" class="vis-container"></div>
+      </div>
+    </div>
+
+    <!-- Row 7 -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 description">
+        <h2>Youth Food Frequency (Daily)</h2>
+        <p>This bar chart shows us how frequently on average Respondants Age <= 18 who consume food items daily
+      consume on a daily basis. For example, the respondants on average answers they eat chicken daily 3 times
+      this means they eat chicken 3 times every day on average.
+    </p>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis7" class="vis-container"></div>
+      </div>
+    </div>
+
+    <!-- Row 8 -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 description">
+        <h2>Youth Food Frequency (Weekly)</h2>
+        <p>This bar chart shows us how frequently on average Respondants Age <= 18 who consume food items weekly
+      consume on a weekly basis. For example, the respondants on average answers they eat noodles weekly 6 times
+      this means they eat needles 3 times every week on average.</p>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis8" class="vis-container"></div>
+      </div>
+    </div>
+
+    <!-- Row 9 -->
+    <div class="pure-g">
+      <div class="pure-u-1-2 description">
+        <h2>Youth Food Frequency (Monthly)</h2>
+        <p>This bar chart shows us how frequently on average Respondants Age <= 18 who consume food items Monthly,
+      consume on a Monthly basis. So for example, on average, a respondent that consumes rice monthly, will consume,
+      4 bowls a month.
+    </p>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis9" class="vis-container"></div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation project is created for exploring Malaysian food culture.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Embed scripts -->
+  <script>
+    vegaEmbed('#vis1', 'rating_avg_state.vl.json', {actions:false});
+    vegaEmbed('#vis5', 'TripAdvisorVsGoogleReview.vl.json', {actions:false});
+    vegaEmbed('#vis2', 'top_rest_penang.vl.json', {actions:false});
+    vegaEmbed('#vis3', 'total_food_price_ovt.vl.json', {actions:false});
+    vegaEmbed('#vis4', 'producer_priceVSsentiment.vl.json', {actions:false});
+    vegaEmbed('#vis6', 'EatingOutVsBMI.vl.json', {actions:false});
+    vegaEmbed('#vis7', 'youth_food_freq_daily.vl.json', {actions:false});
+    vegaEmbed('#vis8', 'youth_food_freq_weekly.vl.json', {actions:false});
+    vegaEmbed('#vis9', 'youth_food_freq_monthly.vl.json', {actions:false});
+  </script>
 </body>
 </html>

@@ -2,14 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title" : {
     "text" : "Trip Advisor Vs Google Reviews",
-    "subtitle" : [
-      "However we must identify which is the most reliable platform to obtain restaurant reviews",
-      "The bar chart below combines the total number of reviews on Trip Advisor and Google Reviews",
-      "to find the most reviewed restaurants and compares their average ratings. We can observe that",
-      "in general between these 10 restaurants, reviewers tend to rate restaurants slightly higher on Trip Advisor",
-      "But the general rating for each restaurant is close to one another. So Trip Advisor or Google Reviews",
-      "is a viable option to find good food."
-    ],
     "anchor": "start"
   },
   "description": "Top 5 restaurants with the most combined reviews, comparing average ratings from Trip Advisor and Google Reviews",
