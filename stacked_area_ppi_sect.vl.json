@@ -2,31 +2,29 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 800,
   "height": 400,
+  "title" : {
+    "text": "Producer Price Index in Malaysia",
+    "subtitle": "This shows the "
+  },
   "description": "Producer Price Index over time for selected agricultural items in Malaysia.",
   "data": {
     "url": "data/producer-prices_mys.csv",
-    "format": {
-      "type": "csv"
-    }
+    "format": { "type": "csv" }
   },
   "transform": [
-    {
-      "calculate": "toNumber(datum.Year)",
-      "as": "year_num"
-    },
+    { "calculate": "toNumber(datum.Year)", "as": "year_num" },
     {
       "filter": "indexof(['Coarse Grain, Total', 'Meat, Total', 'Milk, Total'], datum.Item) >= 0"
     }
   ],
   "mark": {
     "type": "area",
-    "interpolate": "monotone",
-    "fillOpacity" : 0.6
+    "opacity": 0.5  
   },
   "encoding": {
     "x": {
       "field": "year_num",
-      "type": "quantitative",
+      "type": "ordinal",
       "title": "Year"
     },
     "y": {
@@ -39,13 +37,8 @@
       "type": "nominal",
       "title": "Item",
       "scale": {
-    "range": [
-      "#4C78A8",
-      "#F58518",
-      "#54A24B",
-      "#B279A2"
-    ]
-  }
+        "range": ["#4C78A8", "#F58518", "#54A24B", "#B279A2"]
+      }
     },
     "tooltip": [
       { "field": "Item", "type": "nominal" },

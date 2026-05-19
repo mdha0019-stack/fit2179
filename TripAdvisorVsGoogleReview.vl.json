@@ -1,5 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title" : "Trip Advisor Vs Google Reviews",
   "description": "Top 5 restaurants with the most combined reviews, comparing average ratings from Trip Advisor and Google Reviews",
 
   "data": {
@@ -28,7 +29,7 @@
     },
 
     {
-      "filter": "datum.rank <= 5"
+      "filter": "datum.rank <= 10"
     },
 
     {

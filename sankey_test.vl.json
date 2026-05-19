@@ -1,0 +1,101 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 700,
+  "height": 400,
+  "padding": 5,
+
+  "data": [
+    {
+      "name": "table",
+      "url": "data/food_survey.csv",
+      "format": {"type": "csv"},
+
+      "transform": [
+        {
+          "type": "fold",
+          "fields": [
+            "Q8.1.Norms_for_Breakfast",
+            "Q8.2.Norms_for_Brunch",
+            "Q8.3.Norms_for_Lunch",
+            "Q8.4.Norms_for_Dinner",
+            "Q8.5.Norms_for_Supper",
+            "Q8.6.Norms_for_Snack",
+            "Q8.7.Norms_for_TeaTime"
+          ],
+          "as": ["mealtime_col", "meal_text"]
+        },
+
+        {
+          "type": "filter",
+          "expr": "datum.meal_text != null && datum.meal_text != ''"
+        },
+
+        {
+          "type": "formula",
+          "as": "gender",
+          "expr": "datum['Q2.Gender']"
+        },
+
+        {
+          "type": "formula",
+          "as": "mealtime",
+          "expr": "datum.mealtime_col == 'Q8.1.Norms_for_Breakfast' ? 'Breakfast' : datum.mealtime_col == 'Q8.2.Norms_for_Brunch' ? 'Brunch' : datum.mealtime_col == 'Q8.3.Norms_for_Lunch' ? 'Lunch' : datum.mealtime_col == 'Q8.4.Norms_for_Dinner' ? 'Dinner' : datum.mealtime_col == 'Q8.5.Norms_for_Supper' ? 'Supper' : datum.mealtime_col == 'Q8.6.Norms_for_Snack' ? 'Snack' : 'Tea Time'"
+        },
+
+        {
+          "type": "formula",
+          "as": "mealType",
+          "expr": "indexof(datum.meal_text, 'Rice') >= 0 || indexof(datum.meal_text, 'Noodles') >= 0 ? 'Rice/Noodles' : indexof(datum.meal_text, 'Burger') >= 0 ? 'Burger' : indexof(datum.meal_text, 'Roti') >= 0 || indexof(datum.meal_text, 'Thosai') >= 0 || indexof(datum.meal_text, 'Chapati') >= 0 ? 'Roti/Thosai' : indexof(datum.meal_text, 'Soup') >= 0 ? 'Soup' : indexof(datum.meal_text, 'Snacks') >= 0 || indexof(datum.meal_text, 'Chips') >= 0 || indexof(datum.meal_text, 'Chocolates') >= 0 ? 'Snacks' : indexof(datum.meal_text, 'Beverage') >= 0 ? 'Beverage' : 'Other'"
+        }
+      ]
+    },
+
+    {
+      "name": "links",
+      "source": "table",
+      "transform": [
+        {
+          "type": "fold",
+          "fields": ["mealtime", "mealType"],
+          "as": ["level", "node"]
+        },
+        {
+          "type": "window",
+          "ops": ["count"],
+          "as": ["count"]
+        }
+      ]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": {"data": "links"},
+      "encode": {
+        "update": {
+          "x": {"scale": "x", "field": "level"},
+          "x2": {"signal": "scale('x', datum.level) + 2"},
+          "y": {"scale": "y", "field": "node"},
+          "height": {"value": 12},
+          "fillOpacity": {"value": 0.6}
+        }
+      }
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "x",
+      "type": "point",
+      "domain": ["gender", "mealtime", "mealType"],
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "type": "band",
+      "domain": {"data": "links", "field": "node"},
+      "range": "height"
+    }
+  ]
+}

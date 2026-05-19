@@ -1,0 +1,113 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": "Dietary Behaviour: Meals/Day vs Eating Out Ratio",
+
+  "data": {
+    "url": "data/food_survey.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "datum['Q6.Norms_Number_of_Meals_Per_Day'] == '1 meal per day' ? 1 : datum['Q6.Norms_Number_of_Meals_Per_Day'] == '2 meals per day' ? 2 : datum['Q6.Norms_Number_of_Meals_Per_Day'] == '3 meals per day' ? 3 : datum['Q6.Norms_Number_of_Meals_Per_Day'] == '4 meals per day' ? 4 : datum['Q6.Norms_Number_of_Meals_Per_Day'] == 'More than 4 meals per day' ? 5 : null",
+      "as": "MealsPerDay"
+    },
+
+    {
+      "calculate": "(datum['Q9.1.Number._of_Times_Eat_at_Home_Last_Week'] + datum['Q9.2.Number_of_Times_Eat_Outside_Last_Week']) > 0 ? datum['Q9.2.Number_of_Times_Eat_Outside_Last_Week'] / (datum['Q9.1.Number._of_Times_Eat_at_Home_Last_Week'] + datum['Q9.2.Number_of_Times_Eat_Outside_Last_Week']) : null",
+      "as": "EatingOutRatio"
+    },
+
+    {
+      "calculate": "datum['Q2.Gender']",
+      "as": "Gender"
+    },
+
+    {
+      "calculate": "datum['Q3.Living_Area']",
+      "as": "LivingArea"
+    },
+
+    {
+      "filter": "isValid(datum.MealsPerDay) && isValid(datum.EatingOutRatio) && isValid(datum.BMI)"
+    }
+  ],
+
+  "mark": {
+    "type": "circle",
+    "opacity": 0.65
+  },
+
+  "encoding": {
+    "x": {
+      "field": "MealsPerDay",
+      "type": "quantitative",
+      "title": "Meals Per Day",
+      "scale": {
+        "domain": [1, 5]
+      },
+      "axis": {
+        "values": [1, 2, 3, 4, 5]
+      }
+    },
+
+    "y": {
+      "field": "EatingOutRatio",
+      "type": "quantitative",
+      "title": "Eating Out Ratio",
+      "scale": {
+        "domain": [0, 1]
+      }
+    },
+
+    "size": {
+      "field": "BMI",
+      "type": "quantitative",
+      "title": "BMI",
+      "scale": {
+        "range": [50, 1200]
+      }
+    },
+
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "title": "Region"
+    },
+
+    "tooltip": [
+      {
+        "field": "MealsPerDay",
+        "type": "quantitative",
+        "title": "Meals/Day"
+      },
+      {
+        "field": "EatingOutRatio",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Eating Out Ratio"
+      },
+      {
+        "field": "BMI",
+        "type": "quantitative",
+        "format": ".1f"
+      },
+      {
+        "field": "Region",
+        "type": "nominal"
+      },
+      {
+        "field": "Gender",
+        "type": "nominal"
+      },
+      {
+        "field": "LivingArea",
+        "type": "nominal",
+        "title": "Living Area"
+      }
+    ]
+  },
+
+  "width": 750,
+  "height": 500
+}

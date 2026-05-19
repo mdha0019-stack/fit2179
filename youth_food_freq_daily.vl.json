@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 400,
+
+  "data": {
+    "url": "data/food_survey.csv",
+    "format": {"type": "csv"}
+  },
+
+  "transform": [
+    {
+      "filter": "datum['Q11_1_Rice_Frequency_Basis'] == 'Daily'"
+    },
+
+    {
+      "fold": [
+        "Q11_1_Rice_Frequency",
+        "Q11_3_Noodles_Frequency",
+        "Q11_6_Bread_Frequency",
+        "Q11_7_Roti_Canai_Frequency",
+        "Q11_9_ChickenDuck_Frequency",
+        "Q11_10_Meat_Frequency_Average_day",
+        "Q11_13_Fish_Frequency",
+        "Q11_15_Eggs_Frequency",
+        "Q11_16_Burger_Frequency",
+        "Q11_17_FriedChicken_Frequency",
+        "Q11_22_Milk_Frequency",
+        "Q11_24_GreenLeafyVegetables_Frequency",
+        "Q11_30_FruitVegetables_Frequency"
+      ],
+      "as": ["food_item", "frequency"]
+    },
+    {
+    "calculate": "datum.food_item == 'Q11_1_Rice_Frequency' ? 'Rice' : datum.food_item == 'Q11_3_Noodles_Frequency' ? 'Noodles' : datum.food_item == 'Q11_6_Bread_Frequency' ? 'Bread' : datum.food_item == 'Q11_7_Roti_Canai_Frequency' ? 'Roti Canai' : datum.food_item == 'Q11_9_ChickenDuck_Frequency' ? 'Chicken/Duck' : datum.food_item == 'Q11_10_Meat_Frequency_Average_day' ? 'Meat' : datum.food_item == 'Q11_13_Fish_Frequency' ? 'Fish' : datum.food_item == 'Q11_15_Eggs_Frequency' ? 'Eggs' : datum.food_item == 'Q11_16_Burger_Frequency' ? 'Burger' : datum.food_item == 'Q11_17_FriedChicken_Frequency' ? 'Fried Chicken' : datum.food_item == 'Q11_22_Milk_Frequency' ? 'Milk' : datum.food_item == 'Q11_24_GreenLeafyVegetables_Frequency' ? 'Vegetables' : datum.food_item == 'Q11_30_FruitVegetables_Frequency' ? 'Fruits' : 'Other'",
+    "as": "food_label"
+    },
+
+    {
+      "filter": "datum.frequency != null"
+    }
+  ],
+
+  "mark": "bar",
+
+  "encoding": {
+    "x": {
+      "field": "food_label",
+      "type": "nominal",
+      "sort": "-y",
+      "title": "Food Item"
+    },
+    "y": {
+      "aggregate": "mean",
+      "field": "frequency",
+      "type": "quantitative",
+      "title": "Avg Daily Frequency"
+    }
+  }
+}

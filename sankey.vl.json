@@ -1,0 +1,1145 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 1000,
+  "height": 520,
+  "padding": {
+    "top": 30,
+    "left": 10,
+    "right": 10,
+    "bottom": 30
+  },
+  "description": "Sankey: Gender \u2192 Meal Time \u2192 Meal Type (n=1604, Malaysian Food Survey)",
+  "data": [
+    {
+      "name": "rawData",
+      "values": [
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Beverage only",
+          "size": 26
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Cereals with milk",
+          "size": 40
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Full breakfast (eggs & sausage)",
+          "size": 79
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Pastries/Dim Sum",
+          "size": 3
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Rice/Noodles + shared dishes",
+          "size": 5
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Rice/Noodles mixed",
+          "size": 215
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Rice/Noodles not mixed",
+          "size": 201
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Roti Canai/Thosai + curry",
+          "size": 61
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Sandwich/Burger",
+          "size": 83
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Small items/Kuih-Muih",
+          "size": 57
+        },
+        {
+          "col0": "Female",
+          "col1": "Breakfast",
+          "col2": "Toast + beverage",
+          "size": 73
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Beverage only",
+          "size": 7
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Buffet",
+          "size": 10
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles + shared dishes",
+          "size": 235
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles mixed",
+          "size": 183
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles mixed + F/D",
+          "size": 3
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles not mixed",
+          "size": 270
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles not mixed + F/D",
+          "size": 3
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles shared + F/D",
+          "size": 3
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Roti Canai/Thosai + curry",
+          "size": 21
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Sandwich/Burger",
+          "size": 23
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Sandwich/Burger + F/D",
+          "size": 2
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Small items/Kuih-Muih",
+          "size": 22
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Soup",
+          "size": 48
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Steamboat",
+          "size": 10
+        },
+        {
+          "col0": "Female",
+          "col1": "Dinner",
+          "col2": "Western structure",
+          "size": 19
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Beverage only",
+          "size": 2
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Buffet",
+          "size": 35
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles + shared dishes",
+          "size": 121
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles mixed",
+          "size": 207
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles mixed + F/D",
+          "size": 6
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles not mixed",
+          "size": 439
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles not mixed + F/D",
+          "size": 18
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles shared + F/D",
+          "size": 9
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Roti Canai/Thosai + curry",
+          "size": 7
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Sandwich/Burger",
+          "size": 9
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Small items/Kuih-Muih",
+          "size": 6
+        },
+        {
+          "col0": "Female",
+          "col1": "Lunch",
+          "col2": "Western structure",
+          "size": 1
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Beverage only",
+          "size": 29
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Cereals with milk",
+          "size": 28
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Full breakfast (eggs & sausage)",
+          "size": 46
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Pastries/Dim Sum",
+          "size": 1
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Rice/Noodles + shared dishes",
+          "size": 12
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Rice/Noodles mixed",
+          "size": 177
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Rice/Noodles not mixed",
+          "size": 179
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Roti Canai/Thosai + curry",
+          "size": 87
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Sandwich/Burger",
+          "size": 53
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Small items/Kuih-Muih",
+          "size": 44
+        },
+        {
+          "col0": "Male",
+          "col1": "Breakfast",
+          "col2": "Toast + beverage",
+          "size": 55
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Beverage only",
+          "size": 4
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Buffet",
+          "size": 21
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles + shared dishes",
+          "size": 227
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles mixed",
+          "size": 122
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles mixed + F/D",
+          "size": 3
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles not mixed",
+          "size": 241
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles not mixed + F/D",
+          "size": 1
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Rice/Noodles shared + F/D",
+          "size": 4
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Roti Canai/Thosai + curry",
+          "size": 19
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Sandwich/Burger",
+          "size": 27
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Sandwich/Burger + F/D",
+          "size": 1
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Small items/Kuih-Muih",
+          "size": 9
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Soup",
+          "size": 21
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Steamboat",
+          "size": 7
+        },
+        {
+          "col0": "Male",
+          "col1": "Dinner",
+          "col2": "Western structure",
+          "size": 9
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Beverage only",
+          "size": 1
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Buffet",
+          "size": 30
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles + shared dishes",
+          "size": 94
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles mixed",
+          "size": 140
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles mixed + F/D",
+          "size": 5
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles not mixed",
+          "size": 405
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles not mixed + F/D",
+          "size": 14
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Rice/Noodles shared + F/D",
+          "size": 4
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Roti Canai/Thosai + curry",
+          "size": 12
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Sandwich/Burger",
+          "size": 8
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Small items/Kuih-Muih",
+          "size": 3
+        },
+        {
+          "col0": "Male",
+          "col1": "Lunch",
+          "col2": "Western structure",
+          "size": 1
+        }
+      ],
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum.col0",
+          "as": "col0"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.col1",
+          "as": "col1"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.col2",
+          "as": "col2"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.size",
+          "as": "size"
+        }
+      ]
+    },
+    {
+      "name": "nodesA",
+      "source": "rawData",
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum.col0 + '|' + datum.col1",
+          "as": "key"
+        },
+        {
+          "type": "fold",
+          "fields": [
+            "col0",
+            "col1"
+          ],
+          "as": [
+            "stack",
+            "grpId"
+          ]
+        },
+        {
+          "type": "formula",
+          "expr": "datum.stack=='col0' ? datum.col0+' '+datum.col1 : datum.col1+' '+datum.col0",
+          "as": "sortField"
+        },
+        {
+          "type": "stack",
+          "groupby": [
+            "stack"
+          ],
+          "sort": {
+            "field": "sortField",
+            "order": "descending"
+          },
+          "field": "size"
+        },
+        {
+          "type": "formula",
+          "expr": "(datum.y0+datum.y1)/2",
+          "as": "yc"
+        }
+      ]
+    },
+    {
+      "name": "groupsA",
+      "source": "nodesA",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "stack",
+            "grpId"
+          ],
+          "fields": [
+            "size"
+          ],
+          "ops": [
+            "sum"
+          ],
+          "as": [
+            "total"
+          ]
+        },
+        {
+          "type": "stack",
+          "groupby": [
+            "stack"
+          ],
+          "sort": {
+            "field": "grpId",
+            "order": "descending"
+          },
+          "field": "total"
+        },
+        {
+          "type": "formula",
+          "expr": "scale('y', datum.y0)",
+          "as": "scaledY0"
+        },
+        {
+          "type": "formula",
+          "expr": "scale('y', datum.y1)",
+          "as": "scaledY1"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.stack=='col0'",
+          "as": "rightLabel"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.total/domain('y')[1]",
+          "as": "percentage"
+        }
+      ]
+    },
+    {
+      "name": "destNodesA",
+      "source": "nodesA",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.stack=='col1'"
+        }
+      ]
+    },
+    {
+      "name": "edgesA",
+      "source": "nodesA",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.stack=='col0'"
+        },
+        {
+          "type": "lookup",
+          "from": "destNodesA",
+          "key": "key",
+          "fields": [
+            "key"
+          ],
+          "as": [
+            "target"
+          ]
+        },
+        {
+          "type": "linkpath",
+          "orient": "horizontal",
+          "shape": "diagonal",
+          "sourceY": {
+            "expr": "scale('y', datum.yc)"
+          },
+          "sourceX": {
+            "expr": "scale('x', 'col0') + bandwidth('x')"
+          },
+          "targetY": {
+            "expr": "scale('y', datum.target.yc)"
+          },
+          "targetX": {
+            "expr": "scale('x', 'col1')"
+          }
+        },
+        {
+          "type": "formula",
+          "expr": "range('y')[0]-scale('y', datum.size)",
+          "as": "strokeWidth"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.size/domain('y')[1]",
+          "as": "percentage"
+        }
+      ]
+    },
+    {
+      "name": "nodesB",
+      "source": "rawData",
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum.col1 + '|' + datum.col2",
+          "as": "key"
+        },
+        {
+          "type": "fold",
+          "fields": [
+            "col1",
+            "col2"
+          ],
+          "as": [
+            "stack",
+            "grpId"
+          ]
+        },
+        {
+          "type": "formula",
+          "expr": "datum.stack=='col1' ? datum.col1+' '+datum.col2 : datum.col2+' '+datum.col1",
+          "as": "sortField"
+        },
+        {
+          "type": "stack",
+          "groupby": [
+            "stack"
+          ],
+          "sort": {
+            "field": "sortField",
+            "order": "descending"
+          },
+          "field": "size"
+        },
+        {
+          "type": "formula",
+          "expr": "(datum.y0+datum.y1)/2",
+          "as": "yc"
+        }
+      ]
+    },
+    {
+      "name": "groupsB",
+      "source": "nodesB",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": [
+            "stack",
+            "grpId"
+          ],
+          "fields": [
+            "size"
+          ],
+          "ops": [
+            "sum"
+          ],
+          "as": [
+            "total"
+          ]
+        },
+        {
+          "type": "stack",
+          "groupby": [
+            "stack"
+          ],
+          "sort": {
+            "field": "grpId",
+            "order": "descending"
+          },
+          "field": "total"
+        },
+        {
+          "type": "formula",
+          "expr": "scale('y', datum.y0)",
+          "as": "scaledY0"
+        },
+        {
+          "type": "formula",
+          "expr": "scale('y', datum.y1)",
+          "as": "scaledY1"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.stack=='col1'",
+          "as": "rightLabel"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.total/domain('y')[1]",
+          "as": "percentage"
+        }
+      ]
+    },
+    {
+      "name": "destNodesB",
+      "source": "nodesB",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.stack=='col2'"
+        }
+      ]
+    },
+    {
+      "name": "edgesB",
+      "source": "nodesB",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.stack=='col1'"
+        },
+        {
+          "type": "lookup",
+          "from": "destNodesB",
+          "key": "key",
+          "fields": [
+            "key"
+          ],
+          "as": [
+            "target"
+          ]
+        },
+        {
+          "type": "linkpath",
+          "orient": "horizontal",
+          "shape": "diagonal",
+          "sourceY": {
+            "expr": "scale('y', datum.yc)"
+          },
+          "sourceX": {
+            "expr": "scale('x', 'col1') + bandwidth('x')"
+          },
+          "targetY": {
+            "expr": "scale('y', datum.target.yc)"
+          },
+          "targetX": {
+            "expr": "scale('x', 'col2')"
+          }
+        },
+        {
+          "type": "formula",
+          "expr": "range('y')[0]-scale('y', datum.size)",
+          "as": "strokeWidth"
+        },
+        {
+          "type": "formula",
+          "expr": "datum.size/domain('y')[1]",
+          "as": "percentage"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "band",
+      "range": "width",
+      "domain": [
+        "col0",
+        "col1",
+        "col2"
+      ],
+      "paddingOuter": 0.02,
+      "paddingInner": 0.82
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "range": "height",
+      "domain": {
+        "fields": [
+          {
+            "data": "nodesA",
+            "field": "y1"
+          },
+          {
+            "data": "nodesB",
+            "field": "y1"
+          }
+        ]
+      }
+    },
+    {
+      "name": "colorGender",
+      "type": "ordinal",
+      "domain": [
+        "Female",
+        "Male"
+      ],
+      "range": [
+        "#C04E7A",
+        "#2E6EB5"
+      ]
+    },
+    {
+      "name": "colorMeal",
+      "type": "ordinal",
+      "domain": [
+        "Breakfast",
+        "Lunch",
+        "Dinner"
+      ],
+      "range": [
+        "#C7762A",
+        "#1D7A5A",
+        "#4A4AA8"
+      ]
+    },
+    {
+      "name": "stackNames",
+      "type": "ordinal",
+      "domain": [
+        "col0",
+        "col1",
+        "col2"
+      ],
+      "range": [
+        "Gender",
+        "Meal Time",
+        "Meal Type"
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "orient": "bottom",
+      "scale": "x",
+      "encode": {
+        "labels": {
+          "update": {
+            "text": {
+              "scale": "stackNames",
+              "field": "value"
+            },
+            "fontSize": {
+              "value": 14
+            },
+            "fontWeight": {
+              "value": "bold"
+            },
+            "fill": {
+              "value": "#444"
+            }
+          }
+        }
+      },
+      "ticks": false,
+      "domain": false
+    }
+  ],
+  "marks": [
+    {
+      "type": "path",
+      "from": {
+        "data": "edgesA"
+      },
+      "clip": true,
+      "encode": {
+        "update": {
+          "stroke": {
+            "scale": "colorGender",
+            "field": "col0"
+          },
+          "strokeWidth": {
+            "field": "strokeWidth"
+          },
+          "path": {
+            "field": "path"
+          },
+          "strokeOpacity": {
+            "value": 0.25
+          },
+          "tooltip": {
+            "signal": "datum.col0 + ' \u2192 ' + datum.col1 + ':  ' + datum.size + ' respondents (' + format(datum.percentage,'.1%') + ')'"
+          }
+        },
+        "hover": {
+          "strokeOpacity": {
+            "value": 0.85
+          }
+        }
+      }
+    },
+    {
+      "type": "path",
+      "from": {
+        "data": "edgesB"
+      },
+      "clip": true,
+      "encode": {
+        "update": {
+          "stroke": {
+            "scale": "colorMeal",
+            "field": "col1"
+          },
+          "strokeWidth": {
+            "field": "strokeWidth"
+          },
+          "path": {
+            "field": "path"
+          },
+          "strokeOpacity": {
+            "value": 0.25
+          },
+          "tooltip": {
+            "signal": "datum.col1 + ' \u2192 ' + datum.col2 + ':  ' + datum.size + ' respondents (' + format(datum.percentage,'.1%') + ')'"
+          }
+        },
+        "hover": {
+          "strokeOpacity": {
+            "value": 0.85
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "groupsA"
+      },
+      "encode": {
+        "enter": {
+          "width": {
+            "scale": "x",
+            "band": 1
+          }
+        },
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "stack"
+          },
+          "y": {
+            "field": "scaledY0"
+          },
+          "y2": {
+            "field": "scaledY1"
+          },
+          "fill": [
+            {
+              "test": "datum.stack=='col0'",
+              "scale": "colorGender",
+              "field": "grpId"
+            },
+            {
+              "scale": "colorMeal",
+              "field": "grpId"
+            }
+          ],
+          "fillOpacity": {
+            "value": 0.8
+          },
+          "cornerRadius": {
+            "value": 3
+          },
+          "tooltip": {
+            "signal": "datum.grpId + ':  ' + datum.total + ' respondents (' + format(datum.percentage,'.1%') + ')'"
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "groupsB"
+      },
+      "encode": {
+        "enter": {
+          "width": {
+            "scale": "x",
+            "band": 1
+          }
+        },
+        "update": {
+          "x": {
+            "scale": "x",
+            "field": "stack"
+          },
+          "y": {
+            "field": "scaledY0"
+          },
+          "y2": {
+            "field": "scaledY1"
+          },
+          "fill": [
+            {
+              "test": "datum.stack=='col2'",
+              "value": "#8885CC"
+            },
+            {
+              "value": "transparent"
+            }
+          ],
+          "stroke": [
+            {
+              "test": "datum.stack=='col2'",
+              "value": "#8885CC"
+            },
+            {
+              "value": "transparent"
+            }
+          ],
+          "fillOpacity": {
+            "value": 0.8
+          },
+          "cornerRadius": {
+            "value": 3
+          },
+          "tooltip": {
+            "signal": "datum.stack=='col2' ? datum.grpId + ':  ' + datum.total + ' respondents (' + format(datum.percentage,'.1%') + ')' : ''"
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "groupsA"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "scale('x', datum.stack) + (datum.rightLabel ? bandwidth('x') + 7 : -7)"
+          },
+          "yc": {
+            "signal": "(datum.scaledY0+datum.scaledY1)/2"
+          },
+          "align": {
+            "signal": "datum.rightLabel ? 'left' : 'right'"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#333"
+          },
+          "text": {
+            "signal": "abs(datum.scaledY0-datum.scaledY1) > 12 ? datum.grpId : ''"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "groupsB"
+      },
+      "interactive": false,
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.stack=='col2' ? scale('x', datum.stack) + bandwidth('x') + 7 : scale('x', datum.stack) - 7"
+          },
+          "yc": {
+            "signal": "(datum.scaledY0+datum.scaledY1)/2"
+          },
+          "align": {
+            "signal": "datum.stack=='col2' ? 'left' : 'right'"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "fontSize": {
+            "value": 10
+          },
+          "fill": {
+            "value": "#555"
+          },
+          "text": {
+            "signal": "datum.stack=='col2' && abs(datum.scaledY0-datum.scaledY1) > 12 ? datum.grpId : ''"
+          }
+        }
+      }
+    }
+  ]
+}
